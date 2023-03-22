@@ -1,7 +1,5 @@
 package Assignment2;
 
-import java.util.HashMap;
-
 public class HashTableSeperateChaining{
 
     private static HashNode[] buckets;
@@ -12,8 +10,8 @@ public class HashTableSeperateChaining{
         this(10); //defualt capacity
     }
     public HashTableSeperateChaining(int capacity){
-        this.numOfBuckets = capacity;
-        this.buckets = new HashNode[numOfBuckets];
+        HashTableSeperateChaining.numOfBuckets = capacity;
+        HashTableSeperateChaining.buckets = new HashNode[numOfBuckets];
         this.size = 0;
     }
 

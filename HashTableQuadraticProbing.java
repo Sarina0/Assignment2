@@ -1,6 +1,5 @@
 package Assignment2;
 
-import javax.xml.crypto.Data;
 
 public class HashTableQuadraticProbing{
     private int currentSize;
@@ -62,7 +61,7 @@ public class HashTableQuadraticProbing{
             if (keys[i] == key)
                 return vals[i];
             i = (i + h * h++) % maxSize;
-           // System.out.println("i "+ i);
+   
         }            
         return null;
     }
@@ -72,15 +71,15 @@ public class HashTableQuadraticProbing{
         if (!contains(key)) 
             return;
  
-        /** find position key and delete **/
-        int i = hash(key), h = 1;
+      
+        int i = hash(key), h = 1;  /// find position key and delete 
         while (!key.equals(keys[i])) 
             i = (i + h * h++) % maxSize;        
         keys[i] = null;
         vals[i] = null;
  
-        /** rehash all keys **/        
-        for (i = (i + h * h++) % maxSize; keys[i] != null; i = (i + h * h++) % maxSize)
+  
+        for (i = (i + h * h++) % maxSize; keys[i] != null; i = (i + h * h++) % maxSize)    // rehash all keys   
         {
             Integer tmp1 = keys[i];
             String tmp2 = vals[i];
@@ -95,7 +94,7 @@ public class HashTableQuadraticProbing{
 
         HashTableQuadraticProbing table = new HashTableQuadraticProbing(10);
     
-        System.out.println("This is Seperate Chaining Tests");
+        System.out.println("This is Quadratic probing Tests");
         System.out.println("'");
         table.add(3,"crab");
         table.add(11,"dolphin");
@@ -113,6 +112,7 @@ public class HashTableQuadraticProbing{
         System.out.println(table.size()); // expected 3 because 44 does not exsit
         table.remove(7);
         System.out.println(table.size()); // expected 2 
+        System.out.println(table.isEmpty()); // expected false 
 
     }
 }
